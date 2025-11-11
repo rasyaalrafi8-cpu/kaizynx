@@ -1,1 +1,516 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jual Berbagai Macam APK Premium</title>
+    <style>
+        /* Reset dan variabel warna */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --light-blue: #60a5fa;
+            --dark-gray: #374151;
+            --medium-gray: #6b7280;
+            --light-gray: #f3f4f6;
+            --accent: #10b981;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--light-gray) 0%, #e5e7eb 100%);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        /* Container utama */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Kategori produk */
+        .category {
+            margin-bottom: 40px;
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary-blue), var(--secondary-blue));
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+        }
+
+        .category-title::before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: var(--secondary-blue);
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        /* Grid produk */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* Kartu produk */
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark-gray);
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        /* Tombol */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+            color: white;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(to right, #25D366, #128C7E);
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-group {
+            background: linear-gradient(to right, #5468ff, #3b4cca);
+            box-shadow: 0 4px 10px rgba(84, 104, 255, 0.3);
+        }
+
+        .btn-group:hover {
+            box-shadow: 0 6px 15px rgba(84, 104, 255, 0.4);
+        }
+
+        .btn-channel {
+            background: linear-gradient(to right, #8a3ab9, #bc2a8d);
+            box-shadow: 0 4px 10px rgba(138, 58, 185, 0.3);
+        }
+
+        .btn-channel:hover {
+            box-shadow: 0 6px 15px rgba(138, 58, 185, 0.4);
+        }
+
+        /* Bagian kontak */
+        .contact-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            border-radius: 20px 20px 0 0;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">APK Premium Store</h1>
+            <p class="tagline">Tempat terbaik untuk mendapatkan berbagai aplikasi premium dengan harga terjangkau</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Kategori APK JB -->
+        <section class="category">
+            <h2 class="category-title">APK JB</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <h3 class="product-name">Apk jb</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Apk qris no ktp</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Apk jb&ppob v1</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Apk jb&ppob v2</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Apk push kontak</h3>
+                    <p class="product-price">Harga: Rp 1.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Apk auto save</h3>
+                    <p class="product-price">Harga: Rp 1.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">G-vortex premium</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Apk jpm</h3>
+                    <p class="product-price">Harga: Rp 1.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Fake notif OVO</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Fake notif Dana</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Fake notif Gopay</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kategori APK Banned -->
+        <section class="category">
+            <h2 class="category-title">APK Banned</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <h3 class="product-name">APK KENON BY R4</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">HANZBANNED</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">BANNED&UNBANNED</h3>
+                    <p class="product-price">Harga: Rp 3.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">LEVII BANNED</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">ARDS V7</h3>
+                    <p class="product-price">Harga: Rp 5.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">VORXAZZA ATTAACK</h3>
+                    <p class="product-price">Harga: Rp 5.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kategori APK Logo -->
+        <section class="category">
+            <h2 class="category-title">APK Logo</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <h3 class="product-name">Apk pixellab collector</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Apk pixellab green</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Apk pixellab red</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Apk pixellab lime</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Apk pixellab rog blue</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Apk pixellab neon</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Apk pixellab grey</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Apk pixellab fire</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Apk pixellab gold premium</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Apk hd in foto</h3>
+                    <p class="product-price">Harga: Rp 3.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kategori APK Game & Video -->
+        <section class="category">
+            <h2 class="category-title">APK Game & Video</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <h3 class="product-name">Apk afk all game</h3>
+                    <p class="product-price">Harga: Rp 5.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Apk game ps</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Apk game pc</h3>
+                    <p class="product-price">Harga: Rp 2.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+                <div class="product-card">
+                    <h3 class="product-name">Bioskop free</h3>
+                    <p class="product-price">Harga: Rp 3.000</p>
+                    <button class="btn">Beli Sekarang</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Kontak -->
+        <section class="contact-section">
+            <h2 class="contact-title">Hubungi Kami</h2>
+            <p>Untuk pemesanan dan informasi lebih lanjut, silakan hubungi kami melalui:</p>
+            <div class="contact-buttons">
+                <a href="https://wa.me/628132060925" class="btn btn-whatsapp">WhatsApp Admin</a>
+                <a href="https://chat.whatsapp.com/GFtpPbjIbp51l5xINUvjwl?mode=wwt" class="btn btn-group">Grup WhatsApp</a>
+                <a href="https://whatsapp.com/channel/0029Vb6XlNsGufIytmqpG81X/176" class="btn btn-channel">Saluran WhatsApp</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 APK Premium. Semua hak dilindungi.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Tambahkan efek interaktif pada tombol beli
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Animasi sederhana saat tombol diklik
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+                
+                // Tampilkan pesan konfirmasi
+                const productName = this.parentElement.querySelector('.product-name').textContent;
+                alert(`Anda akan membeli: ${productName}\nSilakan hubungi kami melalui WhatsApp untuk melanjutkan pembelian.`);
+            });
+        });
+    </script>
+</body>
+</html>
